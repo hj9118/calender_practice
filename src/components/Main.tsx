@@ -20,7 +20,7 @@ const requestData = {
 const Main = () => {
   const [nowDate, setNowDate] = useState<Date>(new Date());
   const [clickedDate, setClickedDate] = useState<Date>();
-  const [holiday, setHoliday] = useState<Holiday>('');
+  const [holiday, setHoliday] = useState<Holiday[]>([]);
 
   const getHoliday = async () => {
     const bodyData = {
@@ -39,6 +39,7 @@ const Main = () => {
   useEffect(() => {
     getHoliday();
   }, [nowDate]);
+  
   return (
     <Container>
       <ControlDate nowDate={nowDate} setNowDate={setNowDate} />
